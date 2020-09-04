@@ -18,37 +18,41 @@ class ShowViewController: UIViewController,UNUserNotificationCenterDelegate {
     @IBOutlet weak var sliderBar: UISlider!
     @IBOutlet weak var buttonConfirm: UIButton!
     @IBOutlet weak var sliderValueLabel: UILabel!
+    @IBOutlet weak var cupSelectImage: UIImageView!
+    @IBOutlet weak var undoBtn: UIButton!
+    
+    @IBOutlet weak var tapMeLabel: UILabel!
+    @IBOutlet weak var upperLabel: UILabel!
+    @IBOutlet weak var lineImage: UIImageView!
+    @IBOutlet weak var lowerLabel: UILabel!
+    
+    
     
     // Initialize controller variables
+    var tapMeTrue : Bool = false
     var imageNameStr = ""
-    var nowWater : Int = 0
-    var targetWater : Int = 0
-    var nowWaterPercent : Int = 0
-    var gender : String = ""
     var confirmDrinking : [Int] = []
     var audioPlayerDrink = AVAudioPlayer()
     var audioPlayerLV = AVAudioPlayer()
-    var audioStop = AVAudioPlayer()
     var audioDrinkSound =  URL(fileURLWithPath: Bundle.main.path(forResource: "DrinkSound", ofType: "mp3")!)
     var audioLVSound = URL(fileURLWithPath: Bundle.main.path(forResource: "LVSound", ofType: "mp3")!)
-    var audioStopSound = URL(fileURLWithPath: Bundle.main.path(forResource: "StopSound", ofType: "mp3")!)
-    var userProfile = UserProfile(gender: "", age: 0, height: 0.0, weight: 0.0, activity: "")
+
     var scheduledNotiHour = [09,11,13,15,17,19,21]
+    var userProfile = UserProfile(gender: "", age: 0, height: 0.0, weight: 0.0, activity: "", waterDrank: 0)
+
     var defaults = UserDefaults.standard
     
 
     // Initialize viewDidLoad function
     override func viewDidLoad() {
+        self.view.backgroundColor = UIColor(red: CGFloat(46)/255.0, green: CGFloat(196)/255.0,blue: CGFloat(182)/255.0, alpha: 1.0)
         sliderBar.value = 250
         sliderBar.maximumValue = 1000
         sliderBar.minimumValue = 0
         userProfile = downloadData()!
         // Assign value from struct
-        targetWater = userProfile.waterTarget
-        nowWaterPercent = Int(userProfile.waterPercentage)
-        percentLabel.text = String(nowWaterPercent) + "%"
-        gender = userProfile.gender
-        if gender == "Male" {
+        percentLabel.text = String(Int(userProfile.waterPercentage)) + "%"
+        if userProfile.gender == "Male" {
             imageNameStr = "Male_000"
         } else {
             imageNameStr = "Female_000"
@@ -59,62 +63,70 @@ class ShowViewController: UIViewController,UNUserNotificationCenterDelegate {
             print("\(y) notification is scheduled.")
             notification(hour:y,minutes:00)
         }
-        
+        updateIconLabel ()
         updateIcon()
         print("\(userProfile.gender) : ShowViewController")
         print(audioDrinkSound)
         do {
             audioPlayerDrink = try AVAudioPlayer(contentsOf: audioDrinkSound)
             audioPlayerLV = try AVAudioPlayer(contentsOf: audioLVSound)
-            audioStop = try AVAudioPlayer(contentsOf: audioStopSound)
         } catch {
             print(error)
         }
+        undoBtn.isHidden = true
     }
 
     
     
     // Func to update slider value
     @IBAction func btnUpdate(_ sender: UIButton) {
+        tapMeTrue = false
+        updateIconLabel ()
         if sender.currentTitle == "S" {
             //buttonS.isSelected =
             sliderBar.value = 100
+            cupSelectImage.image = UIImage(named: "CupSelect_Small")
         } else if sender.currentTitle == "M" {
             sliderBar.value = 250
+            cupSelectImage.image = UIImage(named: "CupSelect_Medium")
         } else if sender.currentTitle == "L" {
             sliderBar.value = 500
+            cupSelectImage.image = UIImage(named: "CupSelect_Large")
         }
         sliderValueLabel.text = String(format: "%.0f", sliderBar.value) + " ml"
     }
     
     // Func to update label next to slider when value changed
     @IBAction func sliderChange(_ sender: UISlider) {
+        tapMeTrue = false
+        updateIconLabel ()
         sliderValueLabel.text = String(format: "%.0f", sliderBar.value) + " ml"
     }
     
     // Func to update Percentage label when button (logo) was clicked
     @IBAction func confirmBtn(_ sender: UIButton) {
         userProfile.waterDrank += Int(sliderBar.value)
-        nowWaterPercent = Int(userProfile.waterPercentage)
+        tapMeTrue = true
+        updateIconLabel ()
         updateIcon()
-        percentLabel.text = String(nowWaterPercent) + "%"
+        percentLabel.text = String(Int(userProfile.waterPercentage)) + "%"
         confirmDrinking.append(Int(sliderBar.value))
         updateData(userProfile)
         print(confirmDrinking)
     }
     
     func updateIcon() {
-        
+        undoBtn.isHidden = false
         // find out which image we should use
         var newImageStr = ""
         // Male or Female?
-        if gender == "Male" {
+        if userProfile.gender == "Male" {
             newImageStr = "Male_"
         } else {
             newImageStr = "Female_"
         }
         // What is the current % water fulfilled?
-        switch nowWaterPercent {
+        switch userProfile.waterPercentage {
             case let waterPer where waterPer >= 100:
                 newImageStr = newImageStr + "100"
             case let waterPer where waterPer >= 90:
@@ -150,16 +162,21 @@ class ShowViewController: UIViewController,UNUserNotificationCenterDelegate {
     }
     
     @IBAction func undoBtnPressed(_ sender: UIButton) {
+        
         if confirmDrinking.last == nil {
-            audioStop.play()
+            //audioStop.play()
         } else {
             if let lastInput = confirmDrinking.last {
                 userProfile.waterDrank -= lastInput
-                nowWaterPercent = Int(userProfile.waterPercentage)
+                updateData(userProfile)
                 updateIcon()
-                percentLabel.text = String(nowWaterPercent) + "%"
+                updateIconLabel ()
+                percentLabel.text = String(Int(userProfile.waterPercentage)) + "%"
                 confirmDrinking.removeLast()
                 print(confirmDrinking)
+                if confirmDrinking.count == 0 {
+                    sender.isHidden = true
+                }
             }
         }
         
@@ -260,6 +277,22 @@ class ShowViewController: UIViewController,UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("willPresent")
         completionHandler([.badge, .alert, .sound])
+    }
+    
+    func updateIconLabel () {
+        upperLabel.text = String(userProfile.waterDrank) + "ml"
+        lowerLabel.text = String(userProfile.waterTarget) + "ml"
+        if tapMeTrue == false {
+            tapMeLabel.isHidden = false
+            upperLabel.isHidden = true
+            lowerLabel.isHidden = true
+            lineImage.isHidden = true
+        } else {
+            tapMeLabel.isHidden = true
+            upperLabel.isHidden = false
+            lowerLabel.isHidden = false
+            lineImage.isHidden = false
+        }
     }
 }
 

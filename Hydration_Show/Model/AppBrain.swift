@@ -37,8 +37,9 @@ struct AppBrain {
     
     mutating func dailyRefresh() {
         //print("dailyRefresh executed") //DEBUG
-        
-        userProfile = downloadData()!
+        if let userProf = downloadData() {
+            userProfile = userProf
+        }
         userProfile.waterDrank = 0
         updateData(userProfile)
     }

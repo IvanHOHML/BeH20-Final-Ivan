@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SuggestViewController: UIViewController {
+class SuggestViewController: UIViewController, UITextFieldDelegate {
     
     var userProfile = UserProfile(gender: "", age: 0, height: 0.0, weight: 0.0, activity: "")
     var litreVal = ""
@@ -40,10 +40,16 @@ class SuggestViewController: UIViewController {
 
         let action = UIAlertAction(title: "Confirm", style: .default) { (action) in
 
+//NEED TO RESTRICT INPUT TO NUMBERS
+            let range = 500...10000
+            if  range.contains((Int(textField.text!) ?? 0)) {
             self.litreVal = (textField.text!)
             self.litreLabel.text = self.litreVal + " ml"
 //   self.defaults.set(self.itemArray, forKey: "TodoListArray")
-            
+
+            } else {
+                print("NO!")
+            }
         }
 
         alert.addTextField { (alertTextField) in
@@ -52,8 +58,13 @@ class SuggestViewController: UIViewController {
         }
 
         alert.addAction(action)
-
+        func textFieldDidBeginEditing(_ textField: UITextField) {
+            action.isEnabled = false
+        }
+        
         present(alert, animated: true, completion: nil)
+        //userProfile.waterTarget = textField.text
+        //updateData(userProfile)
     }
         
         //code to customise drinking water value
@@ -69,5 +80,13 @@ class SuggestViewController: UIViewController {
         }
     }
     
+    // JASON - FUNCTION FOR UPDATING LOCAL DATA
+    func updateData(_ profile: UserProfile) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(profile) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "UserProfile")
+        }
+    }
     
 }

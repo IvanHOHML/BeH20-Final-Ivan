@@ -17,17 +17,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
  //JASON - IF USER IS NOT FIRST LAUNCH, WILL JUMP STRAIGHT TO SHOWVIEWCONTROLLER
         
-//        if UserDefaults.isFirstLaunch() == false {
-//            let stor = UIStoryboard.init(name: "Main", bundle: nil)
-//            let showVC = stor.instantiateViewController(withIdentifier: "ShowViewController")
-//            let nav = UINavigationController(rootViewController: showVC)
-//            nav.navigationBar.isHidden = true
-//            self.window?.rootViewController = nav
-//            self.window?.makeKeyAndVisible()
-//        }
+        if UserDefaults.isFirstLaunch() == false {
+            let stor = UIStoryboard.init(name: "Main", bundle: nil)
+            let showVC = stor.instantiateViewController(withIdentifier: "ShowViewController")
+            let nav = UINavigationController(rootViewController: showVC)
+            nav.navigationBar.isHidden = true
+            self.window?.rootViewController = nav
+            self.window?.makeKeyAndVisible()
+        }
 
         
-//
+
         
     }
         func sceneDidDisconnect(_ scene: UIScene) {
