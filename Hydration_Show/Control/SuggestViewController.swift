@@ -16,6 +16,7 @@ class SuggestViewController: UIViewController, UITextFieldDelegate {
     //ini alert
     let alert = UIAlertController(title: "Customise Daily Water Input", message: "Please insert an amount between 500 and 10000 ml", preferredStyle: .alert)
     var ansWrong = false
+    let defaults = UserDefaults.standard
     
     @IBOutlet weak var litreLabel: UILabel!
     @IBOutlet weak var customButton: UIButton!
@@ -33,6 +34,9 @@ class SuggestViewController: UIViewController, UITextFieldDelegate {
         litreLabel.text = "\(userProfile.waterTarget) ml"
         logoImageView.center = self.view.center
         self.view.addSubview(logoImageView)
+        if let safeUserProfile = downloadData() {
+            userProfile = safeUserProfile
+        }
        
         
     }
@@ -51,6 +55,9 @@ class SuggestViewController: UIViewController, UITextFieldDelegate {
                 self.litreVal = (textField.text!)
                 self.litreLabel.text = self.litreVal + " ml"
                 self.ansWrong = false
+                self.userProfile.setWaterTarget(userSet: true, userSetValue: Int(textField.text!)!)
+                self.updateData(self.userProfile)
+                print(self.userProfile.waterTarget)
                 //   self.defaults.set(self.itemArray, forKey: "TodoListArray")
                 
             } else {
@@ -77,9 +84,6 @@ class SuggestViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(action2)
         present(alert, animated: true, completion: nil)
         
-           
-        //userProfile.waterTarget = textField.text
-        //updateData(userProfile)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -107,6 +111,17 @@ class SuggestViewController: UIViewController, UITextFieldDelegate {
             let destinationVC = segue.destination as! ShowViewController
             destinationVC.userProfile = userProfile
         }
+    }
+    
+    // JASON - FUNCTION FOR DOWNLOADING LOCAL DATA
+    func downloadData() -> UserProfile? {
+        if let savedProfile = defaults.object(forKey: "UserProfile") as? Data {
+            let decoder = JSONDecoder()
+            if let userProfile = try? decoder.decode(UserProfile.self, from: savedProfile) {
+                return userProfile
+            }
+        }
+        return nil
     }
     
     // JASON - FUNCTION FOR UPDATING LOCAL DATA

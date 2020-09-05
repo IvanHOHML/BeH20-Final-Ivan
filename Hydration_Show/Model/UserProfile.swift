@@ -16,9 +16,7 @@ struct UserProfile : Codable {
     let weight : Double
     let activity : String
     
-    var waterTarget : Int {
-            return Int((1.47*self.weight+Double(12*self.activityLevel))*22.18)
-    }
+    var waterTarget : Int = 0
     
     var activityLevel : Int {
         get {
@@ -38,7 +36,17 @@ struct UserProfile : Codable {
     var waterDrank : Int = 0
     
     var waterPercentage : Double {
-        return Double(waterDrank)/Double(waterTarget)*100
+        get {
+            return Double(waterDrank)/Double(waterTarget)*100
+        }
+    }
+
+    mutating func setWaterTarget(userSet: Bool, userSetValue: Int){
+            if userSet == false {
+                self.waterTarget = Int((1.47*self.weight+Double(12*self.activityLevel))*22.18)
+            } else {
+                self.waterTarget = userSetValue
+            }
     }
     
 }

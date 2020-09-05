@@ -88,8 +88,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         height = Double(heightTextField.text!)!           //FORCE UNWRAP FOR NOW FIX LATER
         weight = Double(weightTextField.text!)!
         age = Int(ageTextField.text!)!
-        
         userProfile = UserProfile(gender: gender, age: age, height: height, weight: weight, activity: activity)
+        userProfile.setWaterTarget(userSet: false, userSetValue: 0)
         
         updateData(userProfile)
 
@@ -115,7 +115,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     func showUserDefaultValue() {
         if userProfile.gender != "" {
             //Set Default Value
-            if userProfile.gender == "Male" {
+            if userProfile.gender == "Female" {
                 genderImage.image = UIImage(named: "GenderDark_Male")
             } else {
                 genderImage.image = UIImage(named: "GenderDark_Female")
