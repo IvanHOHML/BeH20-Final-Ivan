@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="loJ-R8-LNU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="loJ-R8-LNU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
         <!--Show View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ShowViewController" id="BYZ-38-t0r" customClass="ShowViewController" customModule="Hydration_Show" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShowViewController" id="BYZ-38-t0r" customClass="ShowViewController" customModule="beH2O" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -147,7 +147,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP ME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncQ-3A-ITN" userLabel="TapMe Label">
-                                <rect key="frame" x="177" y="437" width="60.5" height="22.5"/>
+                                <rect key="frame" x="175" y="437.5" width="64" height="21"/>
                                 <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -232,7 +232,7 @@
         <!--Suggest View Controller-->
         <scene sceneID="Lct-S1-Ybc">
             <objects>
-                <viewController storyboardIdentifier="SuggestViewController" id="PMn-lS-d1W" customClass="SuggestViewController" customModule="Hydration_Show" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SuggestViewController" id="PMn-lS-d1W" customClass="SuggestViewController" customModule="beH2O" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ucM-my-PdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -353,7 +353,7 @@
         <!--Profile View Controller-->
         <scene sceneID="TWV-93-63q">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="loJ-R8-LNU" customClass="ProfileViewController" customModule="Hydration_Show" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="loJ-R8-LNU" customClass="ProfileViewController" customModule="beH2O" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NNc-xx-6do">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -362,7 +362,7 @@
                                 <rect key="frame" x="57" y="94" width="300" height="42"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4N-Ph-PjV">
-                                        <rect key="frame" x="0.0" y="0.0" width="95" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="42"/>
                                         <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -437,7 +437,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text=". . ." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BdB-ba-3GH">
-                                        <rect key="frame" x="185" y="9" width="70" height="32.5"/>
+                                        <rect key="frame" x="185" y="9.5" width="70" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="WAF-Oc-VeF"/>
                                         </constraints>
@@ -483,7 +483,7 @@
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         <connections>
                                             <action selector="textFieldEditEnd:" destination="loJ-R8-LNU" eventType="editingDidEnd" id="XqH-yV-nWT"/>
                                             <action selector="textFieldTouchDown:" destination="loJ-R8-LNU" eventType="touchDown" id="IhB-Yj-szB"/>
@@ -517,19 +517,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SH6-Pu-Mts">
-                                        <rect key="frame" x="261.5" y="9.5" width="38.5" height="31"/>
+                                        <rect key="frame" x="260" y="10.5" width="40" height="29.5"/>
                                         <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text=". . ." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3pa-NY-1gg">
-                                        <rect key="frame" x="185" y="9" width="70" height="32.5"/>
+                                        <rect key="frame" x="185" y="9.5" width="70" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="KfU-hV-x81"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         <connections>
                                             <action selector="textFieldEditEnd:" destination="loJ-R8-LNU" eventType="editingDidEnd" id="s9y-Zo-fYV"/>
                                             <action selector="textFieldTouchDown:" destination="loJ-R8-LNU" eventType="touchDown" id="26B-Ts-FSq"/>
@@ -551,7 +551,7 @@
                                 <rect key="frame" x="57" y="255" width="300" height="42"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise Level:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DB0-Ba-1E7">
-                                        <rect key="frame" x="0.0" y="0.0" width="168" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="42"/>
                                         <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
