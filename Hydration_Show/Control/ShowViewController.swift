@@ -113,6 +113,11 @@ class ShowViewController: UIViewController,UNUserNotificationCenterDelegate {
         confirmDrinking.append(Int(sliderBar.value))
         updateData(userProfile)
         print(confirmDrinking)
+        if imageNameStr == "Male_100" || imageNameStr == "Female_100" {
+            audioPlayerLV.play()
+        } else {
+            audioPlayerDrink.play()
+        }
     }
     
     func updateIcon() {
@@ -152,11 +157,6 @@ class ShowViewController: UIViewController,UNUserNotificationCenterDelegate {
         }
         
         // Debug print : Check if the image is called correctly
-        if newImageStr == "Male_100" || newImageStr == "Female_100" {
-            audioPlayerLV.play()
-        } else {
-            audioPlayerDrink.play()
-        }
         imageNameStr = newImageStr
         buttonConfirm.setImage(UIImage(named: newImageStr), for: .normal)
     }
