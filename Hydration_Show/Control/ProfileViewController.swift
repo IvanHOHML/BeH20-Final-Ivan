@@ -39,6 +39,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         showUserDefaultValue()
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor(red: CGFloat(46)/255.0, green: CGFloat(196)/255.0,blue: CGFloat(182)/255.0, alpha: 1.0)
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tap)
 
     }
 
@@ -73,7 +80,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func textFieldTouchDown(_ sender: UITextField) {
-        if sender.text == ". . ." {
+        if sender.text == ". . ." || sender.text == "0.0"  {
             sender.text = ""
         } else {
             sender.textColor = UIColor(red: CGFloat(255)/255.0, green: CGFloat(255)/255.0,blue: CGFloat(255)/255.0, alpha: 1.0)
@@ -148,6 +155,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
       return (string.containsValidCharacter)
     }
 
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
 }
 

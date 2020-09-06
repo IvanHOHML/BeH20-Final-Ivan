@@ -17,16 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let defaults = UserDefaults.standard
     var appBrain = AppBrain()
     var dateOfTerminate : String = ""
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        //print("dateOfTerminate : \(dateOfTerminate)")   //DEBUG
-        appBrain.checkDate()
-
-        optionallyStoreTheFirstLaunchFlag = UserDefaults.isFirstLaunch()
-        // Override point for customization after application launch.
-        return true
-    }
+//
+//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        
+//        //print("dateOfTerminate : \(dateOfTerminate)")   //DEBUG
+//        appBrain.checkDate()
+//
+//        optionallyStoreTheFirstLaunchFlag = UserDefaults.isFirstLaunch()
+//        // Override point for customization after application launch.
+//        return true
+//    }
 
 
      //MARK: UISceneSession Lifecycle

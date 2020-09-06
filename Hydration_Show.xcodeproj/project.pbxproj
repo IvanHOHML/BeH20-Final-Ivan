@@ -22,12 +22,11 @@
 		2D551E2824FFA01A0022AC89 /* LVSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2D551E2624FFA01A0022AC89 /* LVSound.mp3 */; };
 		2D709B1E2500A569004393AD /* gilroy-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2D709B1C2500A568004393AD /* gilroy-light.otf */; };
 		2D709B1F2500A569004393AD /* gilroy-extrabold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2D709B1D2500A568004393AD /* gilroy-extrabold.otf */; };
-		5C9D460F2503677A001D8531 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9D460E2503677A001D8531 /* LaunchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2D11F27F2502ABC000BEF97F /* ErrorSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ErrorSound.mp3; sourceTree = "<group>"; };
-		2D551DFF24FE47B00022AC89 /* Hydration_Show.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydration_Show.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D551DFF24FE47B00022AC89 /* beH2O.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beH2O.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D551E0224FE47B00022AC89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D551E0424FE47B00022AC89 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2D551E0624FE47B00022AC89 /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
@@ -43,7 +42,6 @@
 		2D551E2624FFA01A0022AC89 /* LVSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LVSound.mp3; sourceTree = "<group>"; };
 		2D709B1C2500A568004393AD /* gilroy-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gilroy-light.otf"; sourceTree = "<group>"; };
 		2D709B1D2500A568004393AD /* gilroy-extrabold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gilroy-extrabold.otf"; sourceTree = "<group>"; };
-		5C9D460E2503677A001D8531 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +66,7 @@
 		2D551E0024FE47B00022AC89 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2D551DFF24FE47B00022AC89 /* Hydration_Show.app */,
+				2D551DFF24FE47B00022AC89 /* beH2O.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,7 +114,6 @@
 				2D551E1A24FF57760022AC89 /* ProfileViewController.swift */,
 				2D551E1824FF56F20022AC89 /* SuggestViewController.swift */,
 				2D551E0624FE47B00022AC89 /* ShowViewController.swift */,
-				5C9D460E2503677A001D8531 /* LaunchViewController.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -138,7 +135,7 @@
 			);
 			name = Hydration_Show;
 			productName = Hydration_Show;
-			productReference = 2D551DFF24FE47B00022AC89 /* Hydration_Show.app */;
+			productReference = 2D551DFF24FE47B00022AC89 /* beH2O.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -204,7 +201,6 @@
 				2D551E1724FF56D80022AC89 /* AppBrain.swift in Sources */,
 				2D551E1924FF56F20022AC89 /* SuggestViewController.swift in Sources */,
 				2D551E0524FE47B00022AC89 /* SceneDelegate.swift in Sources */,
-				5C9D460F2503677A001D8531 /* LaunchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,8 +351,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.IvanHo.Hydration-Show";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ivaniho.Hydration-Show";
+				PRODUCT_NAME = beH2O;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -373,8 +369,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.IvanHo.Hydration-Show";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ivaniho.Hydration-Show";
+				PRODUCT_NAME = beH2O;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
