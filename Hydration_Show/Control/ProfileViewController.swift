@@ -80,7 +80,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func textFieldTouchDown(_ sender: UITextField) {
-        if sender.text == ". . ." || sender.text == "0.0"  {
+        if sender.text == ". . ." || sender.text == "0.0" || sender.text == "0"  {
             sender.text = ""
         } else {
             sender.textColor = UIColor(red: CGFloat(255)/255.0, green: CGFloat(255)/255.0,blue: CGFloat(255)/255.0, alpha: 1.0)
