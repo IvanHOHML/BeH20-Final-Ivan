@@ -71,6 +71,8 @@ class SuggestViewController: UIViewController, UITextFieldDelegate {
             }
 
         
+        if alert.actions == [] {
+        
         alert.addTextField{ (alertTextField) in
             alertTextField.delegate = self
             alertTextField.addTarget(self, action: #selector(self.textFieldDidBeginEditing), for: UIControl.Event.editingChanged)
@@ -82,6 +84,8 @@ class SuggestViewController: UIViewController, UITextFieldDelegate {
 
         alert.addAction(action)
         alert.addAction(action2)
+        }
+            
         present(alert, animated: true, completion: nil)
         
     }
@@ -92,10 +96,10 @@ class SuggestViewController: UIViewController, UITextFieldDelegate {
             textField.layer.borderColor = UIColor.gray.cgColor
             self.alert.actions[0].isEnabled = true
         } else {
+            self.alert.actions[0].isEnabled = false
             if self.ansWrong == true {
                 textField.layer.borderColor = UIColor.red.cgColor
                 textField.layer.borderWidth = 1.0
-                self.alert.actions[0].isEnabled = false
             }
         }
     }

@@ -92,15 +92,27 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
-        height = Double(heightTextField.text!)!           //FORCE UNWRAP FOR NOW FIX LATER
-        weight = Double(weightTextField.text!)!
-        age = Int(ageTextField.text!)!
-        userProfile = UserProfile(gender: gender, age: age, height: height, weight: weight, activity: activity)
-        userProfile.setWaterTarget(userSet: false, userSetValue: 0)
-        
-        updateData(userProfile)
-
-        self.performSegue(withIdentifier: "toSuggest", sender: self)
+        if let height = Double(heightTextField.text!),
+            let weight = Double(weightTextField.text!),
+            let age = Int(ageTextField.text!) {
+            
+            userProfile = UserProfile(gender: gender, age: age, height: height, weight: weight, activity: activity)
+            userProfile.setWaterTarget(userSet: false, userSetValue: 0)
+            
+            updateData(userProfile)
+            
+            self.performSegue(withIdentifier: "toSuggest", sender: self)
+        }
+        else {
+            let alert = UIAlertController(title: "Please input a Valid Value", message: "", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Confirm", style: .default) { (action) in
+                
+            }
+            if alert.actions == [] {
+                alert.addAction(action)
+            }
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -120,6 +132,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     func showUserDefaultValue() {
+        
+        age = userProfile.age
+        gender = userProfile.gender
+        height = userProfile.height
+        weight = userProfile.weight
+        activity = userProfile.activity
+        
         if userProfile.gender != "" {
             //Set Default Value
             if userProfile.gender == "Female" {
