@@ -13,6 +13,10 @@ class SuggestViewController: UIViewController, UITextFieldDelegate {
     var userProfile = UserProfile(gender: "", age: 0, height: 0.0, weight: 0.0, activity: "")
     var litreVal = ""
     
+    //ini alert
+    let alert = UIAlertController(title: "Customise Daily Water Input", message: "Please insert an amount between 500 and 10000 ml", preferredStyle: .alert)
+    var ansWrong = false
+    
     @IBOutlet weak var litreLabel: UILabel!
     @IBOutlet weak var customButton: UIButton!
     @IBOutlet weak var stackView: UIStackView!
@@ -29,44 +33,69 @@ class SuggestViewController: UIViewController, UITextFieldDelegate {
         litreLabel.text = "\(userProfile.waterTarget) ml"
         logoImageView.center = self.view.center
         self.view.addSubview(logoImageView)
+       
         
     }
+    
 
     @IBAction func customButtonPressed(_ sender: UIButton) {
         
         var textField = UITextField()
-
-        let alert = UIAlertController(title: "Customise Daily Water Input", message: "", preferredStyle: .alert)
+    
 
         let action = UIAlertAction(title: "Confirm", style: .default) { (action) in
-
-//NEED TO RESTRICT INPUT TO NUMBERS
+            
+            //NEED TO RESTRICT INPUT TO NUMBERS
             let range = 500...10000
             if  range.contains((Int(textField.text!) ?? 0)) {
-            self.litreVal = (textField.text!)
-            self.litreLabel.text = self.litreVal + " ml"
-//   self.defaults.set(self.itemArray, forKey: "TodoListArray")
-
+                self.litreVal = (textField.text!)
+                self.litreLabel.text = self.litreVal + " ml"
+                self.ansWrong = false
+                //   self.defaults.set(self.itemArray, forKey: "TodoListArray")
+                
             } else {
-                print("NO!")
+                self.present(self.alert, animated: true, completion: nil)
+                self.ansWrong = true
             }
         }
+        
+        let action2 = UIAlertAction(title: "Cancel", style: .default) { (action) in
 
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Please insert an amount in Litre"
+            }
+
+        
+        alert.addTextField{ (alertTextField) in
+            alertTextField.delegate = self
+            alertTextField.addTarget(self, action: #selector(self.textFieldDidBeginEditing), for: UIControl.Event.editingChanged)
+            alertTextField.placeholder = "Type Here"
             textField = alertTextField
         }
+        
+        
 
         alert.addAction(action)
-        func textFieldDidBeginEditing(_ textField: UITextField) {
-            action.isEnabled = false
-        }
-        
+        alert.addAction(action2)
         present(alert, animated: true, completion: nil)
+        
+           
         //userProfile.waterTarget = textField.text
         //updateData(userProfile)
     }
-        
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let range = 500...10000
+        if  range.contains((Int(textField.text!) ?? 0)) {
+            textField.layer.borderColor = UIColor.gray.cgColor
+            self.alert.actions[0].isEnabled = true
+        } else {
+            if self.ansWrong == true {
+                textField.layer.borderColor = UIColor.red.cgColor
+                textField.layer.borderWidth = 1.0
+                self.alert.actions[0].isEnabled = false
+            }
+        }
+    }
+
         //code to customise drinking water value
     
     @IBAction func showScreenButtonPressed(_ sender: UIButton) {
