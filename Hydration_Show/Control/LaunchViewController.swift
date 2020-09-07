@@ -2,7 +2,7 @@
 //  LaunchViewController.swift
 //  Hydration_Show
 //
-//  Created by Jason So on 5/9/2020.
+//  Created by  Ho Ivan on 9/7/20.
 //  Copyright © 2020  Ho Ivan. All rights reserved.
 //
 

@@ -7,26 +7,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Launch View Controller-->
+        <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
-                <viewController id="01J-lp-oVM" customClass="LaunchViewController" customModule="beH2O" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="revised_beH2O" translatesAutoresizingMaskIntoConstraints="NO" id="gwK-Np-0Vb">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch Icon" translatesAutoresizingMaskIntoConstraints="NO" id="eW9-hg-LAJ">
                                 <rect key="frame" x="147" y="350" width="120" height="196"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="196" id="0Tq-y6-0vh"/>
-                                    <constraint firstAttribute="width" constant="120" id="8LD-JM-ogg"/>
+                                    <constraint firstAttribute="width" constant="120" id="Xmb-uy-KJM"/>
+                                    <constraint firstAttribute="height" constant="196" id="d3v-pT-uu6"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.25490196078431371" green="0.82352941176470584" blue="0.78823529411764703" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="gwK-Np-0Vb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5yv-zF-Cua"/>
-                            <constraint firstItem="gwK-Np-0Vb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="WMe-RI-C8u"/>
+                            <constraint firstItem="eW9-hg-LAJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="2Cg-9N-27i"/>
+                            <constraint firstItem="eW9-hg-LAJ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="6Pp-L8-aN0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="revised_beH2O" width="6880" height="11040"/>
+        <image name="Launch Icon" width="6880" height="11040"/>
     </resources>
 </document>

@@ -22,6 +22,8 @@
 		2D551E2824FFA01A0022AC89 /* LVSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2D551E2624FFA01A0022AC89 /* LVSound.mp3 */; };
 		2D709B1E2500A569004393AD /* gilroy-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2D709B1C2500A568004393AD /* gilroy-light.otf */; };
 		2D709B1F2500A569004393AD /* gilroy-extrabold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2D709B1D2500A568004393AD /* gilroy-extrabold.otf */; };
+		2D940D6425063A09008C5226 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D940D6325063A09008C5226 /* LaunchViewController.swift */; };
+		2D940D6625064357008C5226 /* Launch Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D940D6525064357008C5226 /* Launch Icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		2D551E2624FFA01A0022AC89 /* LVSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LVSound.mp3; sourceTree = "<group>"; };
 		2D709B1C2500A568004393AD /* gilroy-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gilroy-light.otf"; sourceTree = "<group>"; };
 		2D709B1D2500A568004393AD /* gilroy-extrabold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gilroy-extrabold.otf"; sourceTree = "<group>"; };
+		2D940D6325063A09008C5226 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		2D940D6525064357008C5226 /* Launch Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch Icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 				2D551E1F24FF60060022AC89 /* View */,
 				2D551E2024FF600A0022AC89 /* Control */,
 				2D551E0B24FE47B20022AC89 /* Assets.xcassets */,
+				2D940D6525064357008C5226 /* Launch Icon.png */,
 				2D551E0D24FE47B20022AC89 /* LaunchScreen.storyboard */,
 				2D551E1024FE47B20022AC89 /* Info.plist */,
 			);
@@ -112,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				2D551E1A24FF57760022AC89 /* ProfileViewController.swift */,
+				2D940D6325063A09008C5226 /* LaunchViewController.swift */,
 				2D551E1824FF56F20022AC89 /* SuggestViewController.swift */,
 				2D551E0624FE47B00022AC89 /* ShowViewController.swift */,
 			);
@@ -183,6 +189,7 @@
 				2D709B1F2500A569004393AD /* gilroy-extrabold.otf in Resources */,
 				2D551E0C24FE47B20022AC89 /* Assets.xcassets in Resources */,
 				2D709B1E2500A569004393AD /* gilroy-light.otf in Resources */,
+				2D940D6625064357008C5226 /* Launch Icon.png in Resources */,
 				2D551E0A24FE47B00022AC89 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +208,7 @@
 				2D551E1724FF56D80022AC89 /* AppBrain.swift in Sources */,
 				2D551E1924FF56F20022AC89 /* SuggestViewController.swift in Sources */,
 				2D551E0524FE47B00022AC89 /* SceneDelegate.swift in Sources */,
+				2D940D6425063A09008C5226 /* LaunchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
