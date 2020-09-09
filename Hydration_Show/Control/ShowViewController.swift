@@ -50,6 +50,7 @@ class ShowViewController: UIViewController,UNUserNotificationCenterDelegate {
         sliderBar.maximumValue = 1000
         sliderBar.minimumValue = 0
         userProfile = downloadData()!
+        print("3vc:\(userProfile.waterDrank)")
         // Assign value from struct
         percentLabel.text = String(Int(userProfile.waterPercentage)) + "%"
         if userProfile.gender == "Male" {
@@ -60,7 +61,7 @@ class ShowViewController: UIViewController,UNUserNotificationCenterDelegate {
         super.viewDidLoad()
     
         for y in scheduledNotiHour {                   //Scheduling Notification
-            print("\(y) notification is scheduled.")
+            //print("\(y) notification is scheduled.")
             notification(hour:y,minutes:00)
         }
         updateIconLabel ()
@@ -216,7 +217,7 @@ class ShowViewController: UIViewController,UNUserNotificationCenterDelegate {
     
     func notification(hour:Int, minutes: Int) {
         let hourString = String(hour)
-        print("NOTIFICATION CALLED")
+        //print("NOTIFICATION CALLED")
         var dateComponents = DateComponents()
         dateComponents.hour = hour
         dateComponents.minute = minutes
@@ -235,7 +236,7 @@ class ShowViewController: UIViewController,UNUserNotificationCenterDelegate {
     
     func registerCategory() -> Void{
         
-        print("REGISTERCATEGORY CALLED")
+        //print("REGISTERCATEGORY CALLED")
         let drink = UNNotificationAction(identifier: "drink", title: "Drink", options: [])
         let clear = UNNotificationAction(identifier: "clear", title: "Clear", options: [])
         let category : UNNotificationCategory = UNNotificationCategory.init(identifier: "CALLINNOTIFICATION", actions: [drink, clear], intentIdentifiers: [], options: [])
@@ -246,7 +247,7 @@ class ShowViewController: UIViewController,UNUserNotificationCenterDelegate {
     }
     
     func scheduleNotification (event : String, time: DateComponents, hourString:String) {
-        print("SCHEDULENOTIFICATION CALLED")
+        //print("SCHEDULENOTIFICATION CALLED")
         let content = UNMutableNotificationContent()
         
         content.title = event

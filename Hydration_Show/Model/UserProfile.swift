@@ -49,4 +49,6 @@ struct UserProfile : Codable {
             }
     }
     
+    var profileIsSet : Bool = false
+    
 }

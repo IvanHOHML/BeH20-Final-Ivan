@@ -10,21 +10,26 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
+    var userProfile = UserProfile(gender: "", age: 0, height: 0.0, weight: 0.0, activity: "")
+    var appBrain = AppBrain()
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
 
  //JASON - IF USER IS NOT FIRST LAUNCH, WILL JUMP STRAIGHT TO SHOWVIEWCONTROLLER
-//
-//        if UserDefaults.isFirstLaunch() == false {
-//            let stor = UIStoryboard.init(name: "Main", bundle: nil)
-//            let showVC = stor.instantiateViewController(withIdentifier: "ShowViewController")
-//            let nav = UINavigationController(rootViewController: showVC)
-//            nav.navigationBar.isHidden = true
-//            self.window?.rootViewController = nav
-//            self.window?.makeKeyAndVisible()
-//        }
+        if let safeUserProfile = appBrain.downloadData() {
+            userProfile = safeUserProfile
+        }
+        
+        if userProfile.profileIsSet == true {
+            let stor = UIStoryboard.init(name: "Main", bundle: nil)
+            let showVC = stor.instantiateViewController(withIdentifier: "ShowViewController")
+            let nav = UINavigationController(rootViewController: showVC)
+            nav.navigationBar.isHidden = true
+            self.window?.rootViewController = nav
+            self.window?.makeKeyAndVisible()
+        }
 
         
 

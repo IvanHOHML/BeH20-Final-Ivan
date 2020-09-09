@@ -107,6 +107,9 @@ class SuggestViewController: UIViewController, UITextFieldDelegate {
         //code to customise drinking water value
     
     @IBAction func showScreenButtonPressed(_ sender: UIButton) {
+        
+        userProfile.profileIsSet = true
+        updateData(userProfile)
         self.performSegue(withIdentifier: "toShow", sender: self)
     }
     

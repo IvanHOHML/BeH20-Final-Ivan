@@ -23,14 +23,14 @@ struct AppBrain {
         
         
         let dateOfTerminate = defaults.string(forKey: "DateOfTerminate")
-        //print("Today's date : \(dateToday) Date of Terminate : \(dateOfTerminate)") //DEBUG
+        print("Today's date : \(dateToday) Date of Terminate : \(dateOfTerminate)") //DEBUG
         
         if dateToday == dateOfTerminate {
-            //print ("checkDate executed: Date same") //DEBUG
+            print ("checkDate executed: Date same") //DEBUG
             return
         } else {
             dailyRefresh()
-            //print ("checkDate executed: Date Diff") //DEBUG
+            print ("checkDate executed: Date Diff") //DEBUG
         }
         
     }

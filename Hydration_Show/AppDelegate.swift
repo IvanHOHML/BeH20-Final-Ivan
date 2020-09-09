@@ -12,21 +12,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // JASON - GET A FLAG IF USER IS LAUNCHING THE FIRST TIME
 
-    var optionallyStoreTheFirstLaunchFlag = false
-    let isFirstLaunch = UserDefaults.isFirstLaunch()
+//    var optionallyStoreTheFirstLaunchFlag = false
+//    let isFirstLaunch = UserDefaults.isFirstLaunch()
     let defaults = UserDefaults.standard
     var appBrain = AppBrain()
     var dateOfTerminate : String = ""
 //
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        
-//        //print("dateOfTerminate : \(dateOfTerminate)")   //DEBUG
-//        appBrain.checkDate()
-//
-//        optionallyStoreTheFirstLaunchFlag = UserDefaults.isFirstLaunch()
-//        // Override point for customization after application launch.
-//        return true
-//    }
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        print("dateOfTerminate : \(dateOfTerminate)")   //DEBUG
+        appBrain.checkDate()
+        
+        let df = DateFormatter()
+        df.timeZone = .current
+        df.dateFormat = "yyyy-MM-dd"
+        dateOfTerminate = df.string(from: Date())
+        
+        self.defaults.set(self.dateOfTerminate, forKey: "DateOfTerminate")
+        print ("dateOfTerminate is Saved : \(dateOfTerminate)") //DEBUG
+
+        //optionallyStoreTheFirstLaunchFlag = UserDefaults.isFirstLaunch()
+        // Override point for customization after application launch.
+        return true
+    }
 
 
      //MARK: UISceneSession Lifecycle
@@ -45,28 +53,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         
-        let df = DateFormatter()
-        df.timeZone = .current
-        df.dateFormat = "yyyy-MM-dd"
-        dateOfTerminate = df.string(from: Date())
         
-        self.defaults.set(self.dateOfTerminate, forKey: "DateOfTerminate")
-        //print ("dateOfTerminate is Saved : \(dateOfTerminate)") //DEBUG
     }
 
 
 }
 
-extension UserDefaults {
-    // check for is first launch - only true on first invocation after app install, false on all further invocations
-    // Note: Store this value in AppDelegate if you have multiple places where you are checking for this flag
-    static func isFirstLaunch() -> Bool {
-        let hasBeenLaunchedBeforeFlag = "hasBeenLaunchedBeforeFlag"
-        let isFirstLaunch = !UserDefaults.standard.bool(forKey: hasBeenLaunchedBeforeFlag)
-        if (isFirstLaunch) {
-            UserDefaults.standard.set(true, forKey: hasBeenLaunchedBeforeFlag)
-            UserDefaults.standard.synchronize()
-        }
-        return isFirstLaunch
-    }
-}
+//extension UserDefaults {
+//    // check for is first launch - only true on first invocation after app install, false on all further invocations
+//    // Note: Store this value in AppDelegate if you have multiple places where you are checking for this flag
+//    static func isFirstLaunch() -> Bool {
+//        let hasBeenLaunchedBeforeFlag = "hasBeenLaunchedBeforeFlag"
+//        let isFirstLaunch = !UserDefaults.standard.bool(forKey: hasBeenLaunchedBeforeFlag)
+//        if (isFirstLaunch) {
+//            UserDefaults.standard.set(true, forKey: hasBeenLaunchedBeforeFlag)
+//            UserDefaults.standard.synchronize()
+//        }
+//        return isFirstLaunch
+//    }
+//}
