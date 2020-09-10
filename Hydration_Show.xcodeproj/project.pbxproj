@@ -22,6 +22,7 @@
 		2D551E2824FFA01A0022AC89 /* LVSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2D551E2624FFA01A0022AC89 /* LVSound.mp3 */; };
 		2D709B1E2500A569004393AD /* gilroy-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2D709B1C2500A568004393AD /* gilroy-light.otf */; };
 		2D709B1F2500A569004393AD /* gilroy-extrabold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2D709B1D2500A568004393AD /* gilroy-extrabold.otf */; };
+		2D81ABB62507691700E35BCC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D81ABB52507691700E35BCC /* StoreKit.framework */; };
 		2D940D6425063A09008C5226 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D940D6325063A09008C5226 /* LaunchViewController.swift */; };
 		2D940D6625064357008C5226 /* Launch Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D940D6525064357008C5226 /* Launch Icon.png */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		2D551E2624FFA01A0022AC89 /* LVSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LVSound.mp3; sourceTree = "<group>"; };
 		2D709B1C2500A568004393AD /* gilroy-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gilroy-light.otf"; sourceTree = "<group>"; };
 		2D709B1D2500A568004393AD /* gilroy-extrabold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gilroy-extrabold.otf"; sourceTree = "<group>"; };
+		2D81ABB52507691700E35BCC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2D940D6325063A09008C5226 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		2D940D6525064357008C5226 /* Launch Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch Icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D81ABB62507691700E35BCC /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +67,7 @@
 			children = (
 				2D551E0124FE47B00022AC89 /* Hydration_Show */,
 				2D551E0024FE47B00022AC89 /* Products */,
+				2D81ABB42507691700E35BCC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +126,14 @@
 				2D551E0624FE47B00022AC89 /* ShowViewController.swift */,
 			);
 			path = Control;
+			sourceTree = "<group>";
+		};
+		2D81ABB42507691700E35BCC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D81ABB52507691700E35BCC /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,6 +364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 286MA2YK9M;
 				INFOPLIST_FILE = Hydration_Show/Info.plist;
@@ -362,6 +375,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iho;
 				PRODUCT_NAME = beH2O;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -371,6 +385,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 286MA2YK9M;
 				INFOPLIST_FILE = Hydration_Show/Info.plist;
@@ -381,6 +396,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iho;
 				PRODUCT_NAME = beH2O;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -32,8 +32,8 @@ class ShowViewController: UIViewController,UNUserNotificationCenterDelegate {
     var tapMeTrue : Bool = false
     var imageNameStr = ""
     var confirmDrinking : [Int] = []
-    var audioPlayerDrink = AVAudioPlayer()
-    var audioPlayerLV = AVAudioPlayer()
+    var audioPlayerDrink : AVAudioPlayer!
+    var audioPlayerLV : AVAudioPlayer!
     var audioDrinkSound =  URL(fileURLWithPath: Bundle.main.path(forResource: "DrinkSound", ofType: "mp3")!)
     var audioLVSound = URL(fileURLWithPath: Bundle.main.path(forResource: "LVSound", ofType: "mp3")!)
 
@@ -75,6 +75,7 @@ class ShowViewController: UIViewController,UNUserNotificationCenterDelegate {
             print(error)
         }
         undoBtn.isHidden = true
+        sliderBar.value = 250
     }
 
     
@@ -251,7 +252,7 @@ class ShowViewController: UIViewController,UNUserNotificationCenterDelegate {
         let content = UNMutableNotificationContent()
         
         content.title = event
-        content.body = "Time to drink."
+        content.body = "Drink water and sit straight."
         content.categoryIdentifier = "CALLINNOTIFICATION"
         let trigger = UNCalendarNotificationTrigger.init(dateMatching: time, repeats:true)
         let identifier = "id_"+event+hourString

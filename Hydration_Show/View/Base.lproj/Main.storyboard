@@ -137,9 +137,9 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7X-Ot-Vbr">
-                                <rect key="frame" x="127" y="183.5" width="160" height="70"/>
+                                <rect key="frame" x="47" y="183.5" width="320" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="6R9-Nd-YM8"/>
+                                    <constraint firstAttribute="width" constant="320" id="6R9-Nd-YM8"/>
                                     <constraint firstAttribute="height" constant="70" id="UKM-ta-i3V"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Gilroy-ExtraBold" family="Gilroy" pointSize="65"/>
@@ -255,10 +255,10 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ve-DC-FOY">
-                                        <rect key="frame" x="0.0" y="262" width="305" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="305" height="382"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="rAb-e0-2qA"/>
+                                            <constraint firstAttribute="height" constant="382" id="rAb-e0-2qA"/>
                                             <constraint firstAttribute="width" constant="305" id="xgF-up-Upu"/>
                                         </constraints>
                                         <state key="normal" title="Customise">
